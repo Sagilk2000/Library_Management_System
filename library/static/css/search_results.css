@@ -1,0 +1,17 @@
+
+.card{
+    margin-left:2em;
+    margin-bottom:2em; 
+    /* align-items:center; */
+    height:300px;
+    width: 50em;;
+    border-color:black;
+    background-color:white;
+    box-shadow:0 0 2px black;
+}
+
+body{
+    font-variant: small-caps;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}

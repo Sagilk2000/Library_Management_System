@@ -1,0 +1,75 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Details</title>
+        <link rel="stylesheet" href="{% static 'css/book_details.css' %}" type="text/css" />
+</head>
+<body>
+<div class="cont" style="padding-left:100px;padding-right:100px;">
+<section id="services" class="services section-bg" style="background-color:rgb(52, 56, 57);
+<!--margin-left:20px;-->
+<!--margin-right:100px;-->
+
+margin-bottom:1em;
+border-radius:10px;">
+    <div class="container-fluid">
+        <div class="row row-sm">
+            <div class="col-md-6 mb-2 column">
+                <div class="zoom-thumb" style="margin-left:3em;">
+                    <img src="{{ object.image_url }}"  style="height: 250px;margin-right:9em;
+                    ">
+                </div>
+            </div>
+            <div class="col-md-6 column">
+                <div class="_product-detail-content">
+                    <p class="_p-name"><b>{{ object.title }}</b></p>
+                    <div class="_p-price-box">
+                        <div class="_p-features">
+                            <span>Description :</span>
+                            {{ object.description }}
+                        </div>
+                        <form action="" method="post" accept-charset="utf-8">
+                            <ul class="spe_ul"></ul>
+                            <div class="_p-qty-and-cart">
+                                <div class="_p-add-cart">
+                                    <a href="{% url 'view_book_pdf' object.id %}" class="btn-theme btn buy-btn" tabindex="0">
+                                        <i class="bi bi-book"></i> Read Now
+                                    </a>
+                                        <button class="btn-theme btn btn-success" href="{% url 'add_to_wishlist' object.id %}" tabindex="0">
+                                            <i class="bi bi-bookmark" href="{% url 'add_to_wishlist' object.id %}"></i> Add to Wishlist
+                                        </button>
+                                   
+                                    
+                                    <input type="hidden" name="pid" value="18" />
+                                    <input type="hidden" name="price" value="850" />
+                                    <input type="hidden" name="url" value="" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+ <div class="d-grid gap-0 col-3 mx-auto" style="width:100%;">
+    <button id="goBackButton" class="btn-outline-success">Go Back</button>
+
+</div>
+<script>
+    // Add an event listener to the "Go Back" button
+    document.getElementById('goBackButton').addEventListener('click', function() {
+        window.history.back(); // Navigate to the previous page
+    });
+</script>
+
+
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/search_results.css' %}">
+
+</head>
+<body>
+<h3 class="search" style="">Search Results :</h3>
+
+<div class="card" style="">
+{% for every in object_list %}
+<div class= "text" style="margin-left:3em;">
+    <h3><a href="{% url 'book_details' every.pk %}" >{{ every.title }}</a></h3>
+    <img src="{{every.image_url}}">
+    <p>{{every.author}}</p>
+</div>
+{% empty %}
+<h5 class="text-danger">Nothing Found :) </h5>
+
+{% endfor %}
+</div>
+</body>
+</html>
+
+{% endblock content %}
